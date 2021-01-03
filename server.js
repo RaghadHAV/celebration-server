@@ -6,13 +6,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/api/celebrations', (req, res, next) => {
+app.get('/api', (req, res, next) => {
     celeb.find({}).then(c => {
         res.json(c);
     }).catch(error => next(error))
 })
 
-app.post('/api/celebrations', (req, res, next) => {
+app.post('/api', (req, res, next) => {
     const body = req.body;
     const celebObject = new celeb({
         name: body.name,
